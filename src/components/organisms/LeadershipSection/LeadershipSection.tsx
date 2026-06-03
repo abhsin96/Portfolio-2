@@ -23,13 +23,19 @@ export const LeadershipSection: React.FC<LeadershipSectionProps> = ({
 }) => {
   return (
     <section id={id} className={cn(styles.section, className)}>
-      <div className={styles.inner}>
+      <div className="section-inner">
         <div className={styles.grid}>
           {/* Intro Column */}
           <div className={styles.introColumn}>
-            <span className={styles.label}>{sectionLabel}</span>
-            <h2 className={styles.headline}>{headline}</h2>
-            {description && <p className={styles.description}>{description}</p>}
+            <span className="section-label">{sectionLabel}</span>
+            <h2 className={cn("section-headline", styles.headline)}>
+              {headline}
+            </h2>
+            {description && (
+              <p className={cn("section-description", styles.description)}>
+                {description}
+              </p>
+            )}
           </div>
 
           {/* Timeline Column */}

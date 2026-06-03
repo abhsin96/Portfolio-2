@@ -28,14 +28,14 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   return (
     <section
       id={id}
-      className={cn(styles.section, className)}
+      className={cn("section-padding", styles.section, className)}
       aria-label="Featured Projects"
     >
-      <div className={styles.inner}>
+      <div className="section-inner">
         <div className={styles.header}>
           <div>
-            <span className={styles.label}>{sectionLabel}</span>
-            <h2 className={styles.headline}>{headline}</h2>
+            <span className="section-label">{sectionLabel}</span>
+            <h2 className="section-headline">{headline}</h2>
           </div>
           <Link href={browseHref} className={styles.browseLink}>
             {browseLabel}{" "}

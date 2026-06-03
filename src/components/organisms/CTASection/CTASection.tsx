@@ -22,16 +22,20 @@ export const CTASection: React.FC<CTASectionProps> = ({
   return (
     <section
       id={id}
-      className={cn(styles.section, className)}
+      className={cn("section-padding", styles.section, className)}
       aria-label="Call to action"
     >
-      <div className={styles.inner}>
+      <div className="section-inner">
         <div className={styles.panel}>
           <div className={styles.iconDecor} aria-hidden="true">
             <MaterialIcon name="terminal" />
           </div>
-          <h2 className={styles.headline}>{headline}</h2>
-          <p className={styles.description}>{description}</p>
+          <h2 className={cn("section-headline", styles.headline)}>
+            {headline}
+          </h2>
+          <p className={cn("section-description", styles.description)}>
+            {description}
+          </p>
           <Button variant="primary" className={styles.cta}>
             {ctaLabel}
           </Button>

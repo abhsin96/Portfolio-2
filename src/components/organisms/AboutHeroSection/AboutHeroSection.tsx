@@ -26,11 +26,11 @@ export const AboutHeroSection: React.FC<AboutHeroSectionProps> = ({
 }) => {
   return (
     <section id={id} className={cn(styles.section, className)}>
-      <div className={styles.inner}>
+      <div className="section-inner">
         <div className={styles.grid}>
           {/* Text Column */}
           <div className={styles.textColumn}>
-            <span className={styles.label}>{sectionLabel}</span>
+            <span className="section-label">{sectionLabel}</span>
             <h1 className={styles.headlineDesktop}>{headline}</h1>
             {headlineMobile && (
               <h1 className={styles.headlineMobile}>{headlineMobile}</h1>

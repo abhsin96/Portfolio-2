@@ -1,34 +1,15 @@
+/* ── Section & Inner ──
+   .section-inner applied via global class in TSX.
+   .section-label and .section-headline applied via global classes in TSX.
+*/
+
 .section {
   padding-top: var(--section-gap-desktop);
   padding-bottom: 0;
 }
 
-.inner {
-  composes: inner from "../../../styles/container.module.css";
-}
-
 .header {
   margin-bottom: 48px;
-}
-
-.label {
-  font-family: var(--font-mono);
-  font-size: var(--text-label-caps-size);
-  font-weight: var(--text-label-caps-weight);
-  letter-spacing: var(--text-label-caps-ls);
-  text-transform: uppercase;
-  color: var(--color-secondary);
-  margin-bottom: var(--spacing-2);
-  display: block;
-}
-
-.headline {
-  font-family: var(--font-sans);
-  font-size: var(--text-headline-lg-size);
-  font-weight: var(--text-headline-lg-weight);
-  line-height: var(--text-headline-lg-lh);
-  letter-spacing: var(--text-headline-lg-ls);
-  color: var(--color-on-surface);
 }
 
 /* ── Tech Grid (6 columns desktop, 4 tablet, 2 mobile) ── */
@@ -69,3 +50,5 @@
     padding-top: var(--section-gap-mobile);
   }
 }
+
+/* Note: Section has custom padding (desktop top only, no bottom), so .section stays as component-specific */

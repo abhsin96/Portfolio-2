@@ -22,7 +22,7 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <footer className={cn(styles.footer, className)}>
-      <div className={styles.inner}>
+      <div className={cn("section-inner", styles.inner)}>
         <div className={styles.brand}>{brandName}</div>
         <div className={styles.links}>
           {links.map((link) => (

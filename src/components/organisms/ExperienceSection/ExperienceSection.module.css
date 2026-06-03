@@ -1,34 +1,11 @@
-.section {
-  padding: var(--section-gap-mobile) 0;
-}
-
-.inner {
-  composes: inner from "../../../styles/container.module.css";
-}
+/* ── Section & Inner ──
+   .section-padding and .section-inner applied via global classes in TSX.
+   .section-label and .section-headline applied via global classes in TSX.
+*/
 
 /* ── Header ── */
 .header {
   margin-bottom: var(--spacing-8);
-}
-
-.label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: var(--text-label-caps-size);
-  font-weight: var(--text-label-caps-weight);
-  letter-spacing: var(--text-label-caps-ls);
-  text-transform: uppercase;
-  color: var(--color-secondary);
-  margin-bottom: 8px;
-}
-
-.headline {
-  font-family: var(--font-sans);
-  font-size: var(--text-headline-lg-size);
-  font-weight: var(--text-headline-lg-weight);
-  line-height: var(--text-headline-lg-lh);
-  letter-spacing: var(--text-headline-lg-ls);
-  color: var(--color-on-surface);
 }
 
 /* ── Entries ── */
@@ -140,10 +117,6 @@
 
 /* ── Responsive ── */
 @media (min-width: 769px) {
-  .section {
-    padding: var(--section-gap-desktop) 0;
-  }
-
   .entry {
     padding-left: 80px;
   }

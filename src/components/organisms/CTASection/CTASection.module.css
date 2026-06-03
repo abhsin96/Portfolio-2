@@ -1,10 +1,10 @@
-.section {
-  padding: var(--section-gap-mobile) 0;
-  background-color: rgba(45, 52, 73, 0.2);
-}
+/* ── Section & Inner ──
+   .section-padding and .section-inner applied via global classes in TSX.
+   .section-headline and .section-description applied via global classes in TSX.
+*/
 
-.inner {
-  composes: inner from "../../../styles/container.module.css";
+.section {
+  background-color: rgba(45, 52, 73, 0.2);
 }
 
 .panel {
@@ -33,21 +33,13 @@
 }
 
 .headline {
-  font-family: var(--font-sans);
-  font-size: var(--text-headline-lg-size);
-  font-weight: var(--text-headline-lg-weight);
-  line-height: var(--text-headline-lg-lh);
-  letter-spacing: var(--text-headline-lg-ls);
-  color: var(--color-on-surface);
   margin-bottom: var(--spacing-3);
 }
 
 .description {
-  font-family: var(--font-sans);
   font-size: var(--text-body-lg-size);
   font-weight: var(--text-body-lg-weight);
   line-height: var(--text-body-lg-lh);
-  color: var(--color-on-surface-variant);
   margin-bottom: var(--spacing-5);
   max-width: 640px;
   margin-left: auto;
@@ -68,10 +60,6 @@
 
 /* ── Responsive ── */
 @media (min-width: 769px) {
-  .section {
-    padding: var(--section-gap-desktop) 0;
-  }
-
   .panel {
     padding: 96px;
   }

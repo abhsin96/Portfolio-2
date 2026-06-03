@@ -1,10 +1,11 @@
+/* ── Section & Inner ──
+   .section-inner applied via global class in TSX.
+   .section-label applied via global class in TSX.
+*/
+
 .section {
   padding-top: 128px;
   padding-bottom: 0;
-}
-
-.inner {
-  composes: inner from "../../../styles/container.module.css";
 }
 
 .grid {
@@ -24,17 +25,6 @@
 .textColumn {
   display: flex;
   flex-direction: column;
-}
-
-.label {
-  font-family: var(--font-mono);
-  font-size: var(--text-label-caps-size);
-  font-weight: var(--text-label-caps-weight);
-  letter-spacing: var(--text-label-caps-ls);
-  text-transform: uppercase;
-  color: var(--color-secondary);
-  margin-bottom: var(--spacing-2);
-  display: block;
 }
 
 .headlineDesktop {
@@ -164,3 +154,5 @@
     padding-top: 96px;
   }
 }
+
+/* Note: .paragraph uses body-lg (not body-md), so it stays as component-specific style */

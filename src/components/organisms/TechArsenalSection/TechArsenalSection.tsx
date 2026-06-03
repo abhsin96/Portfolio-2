@@ -25,11 +25,11 @@ export const TechArsenalSection: React.FC<TechArsenalSectionProps> = ({
 }) => {
   return (
     <section id={id} className={cn(styles.section, className)}>
-      <div className={styles.inner}>
+      <div className="section-inner">
         {/* Header */}
         <div className={styles.header}>
-          <span className={styles.label}>{sectionLabel}</span>
-          <h2 className={styles.headline}>{headline}</h2>
+          <span className="section-label">{sectionLabel}</span>
+          <h2 className="section-headline">{headline}</h2>
         </div>
 
         {/* Tech Stack Grid */}
