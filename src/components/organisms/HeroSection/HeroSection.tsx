@@ -2,6 +2,7 @@ import React from "react";
 import { cn } from "@/utils/cn";
 import { StatusBadge } from "@/components/atoms/StatusBadge";
 import { Button } from "@/components/atoms/Button";
+import { MaterialIcon } from "@/components/atoms/MaterialIcon";
 import styles from "./HeroSection.module.css";
 
 export interface TechItem {
@@ -49,12 +50,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className={styles.techCloud}>
           {techStack.map((tech) => (
             <div key={tech.label} className={styles.techChip}>
-              <span
-                className={cn("material-symbols-outlined", styles.techIcon)}
-                aria-hidden="true"
-              >
-                {tech.icon}
-              </span>
+              <MaterialIcon name={tech.icon} className={styles.techIcon} />
               <span className={styles.techLabel}>{tech.label}</span>
             </div>
           ))}

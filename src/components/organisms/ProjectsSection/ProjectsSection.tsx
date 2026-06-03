@@ -3,6 +3,7 @@ import Link from "next/link";
 import { cn } from "@/utils/cn";
 import { BentoProjectCard } from "@/components/molecules/BentoProjectCard";
 import type { BentoProjectCardProps } from "@/components/molecules/BentoProjectCard";
+import { MaterialIcon } from "@/components/atoms/MaterialIcon";
 import styles from "./ProjectsSection.module.css";
 
 export interface ProjectsSectionProps {
@@ -38,12 +39,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           </div>
           <Link href={browseHref} className={styles.browseLink}>
             {browseLabel}{" "}
-            <span
-              className={cn("material-symbols-outlined", styles.browseArrow)}
-              aria-hidden="true"
-            >
-              arrow_forward
-            </span>
+            <MaterialIcon name="arrow_forward" className={styles.browseArrow} />
           </Link>
         </div>
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { cn } from "@/utils/cn";
 import { Button } from "@/components/atoms/Button";
+import { MaterialIcon } from "@/components/atoms/MaterialIcon";
 import styles from "./CTASection.module.css";
 
 export interface CTASectionProps {
@@ -27,7 +28,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
       <div className={styles.inner}>
         <div className={styles.panel}>
           <div className={styles.iconDecor} aria-hidden="true">
-            <span className="material-symbols-outlined">terminal</span>
+            <MaterialIcon name="terminal" />
           </div>
           <h2 className={styles.headline}>{headline}</h2>
           <p className={styles.description}>{description}</p>

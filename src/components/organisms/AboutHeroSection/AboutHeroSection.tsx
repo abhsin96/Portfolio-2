@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/utils/cn";
+import { MaterialIcon } from "@/components/atoms/MaterialIcon";
 import styles from "./AboutHeroSection.module.css";
 
 export interface AboutHeroSectionProps {
@@ -53,15 +54,7 @@ export const AboutHeroSection: React.FC<AboutHeroSectionProps> = ({
                 loading="lazy"
               />
               <div className={styles.imageOverlay}>
-                <span
-                  className="material-symbols-outlined"
-                  style={{
-                    fontSize: "24px",
-                    fontVariationSettings: "'FILL' 1",
-                  }}
-                >
-                  terminal
-                </span>
+                <MaterialIcon name="terminal" size={24} fill />
               </div>
             </div>
             {/* Background glow */}

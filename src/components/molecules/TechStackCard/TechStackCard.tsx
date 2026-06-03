@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/utils/cn";
+import { MaterialIcon } from "@/components/atoms/MaterialIcon";
 import styles from "./TechStackCard.module.css";
 
 export interface TechStackCardProps {
@@ -18,12 +19,7 @@ export const TechStackCard: React.FC<TechStackCardProps> = ({
   return (
     <div className={cn(styles.card, styles[colorVariant], className)}>
       <div className={styles.iconWrapper}>
-        <span
-          className="material-symbols-outlined"
-          style={{ fontSize: "36px", fontVariationSettings: "'FILL' 1" }}
-        >
-          {icon}
-        </span>
+        <MaterialIcon name={icon} size={36} fill />
       </div>
       <span className={styles.label}>{label}</span>
     </div>

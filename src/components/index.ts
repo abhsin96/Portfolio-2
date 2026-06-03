@@ -21,6 +21,9 @@ export type { WindowDotsProps } from "./atoms/WindowDots";
 export { TimelineNode } from "./atoms/TimelineNode";
 export type { TimelineNodeProps } from "./atoms/TimelineNode";
 
+export { MaterialIcon } from "./atoms/MaterialIcon";
+export type { MaterialIconProps } from "./atoms/MaterialIcon";
+
 // Molecules
 export { CodeCard } from "./molecules/CodeCard";
 export type { CodeCardProps } from "./molecules/CodeCard";
