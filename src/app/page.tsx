@@ -10,7 +10,7 @@ import type { ExperienceEntry } from "@/components/organisms/ExperienceSection";
 
 const NAV_LINKS = [
   { href: "#home", label: "Home" },
-  { href: "#projects", label: "Projects" },
+  { href: "/projects", label: "Projects" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
@@ -143,6 +143,7 @@ export default function Home() {
           sectionLabel="SELECTED WORKS"
           headline="Architectural Excellence"
           browseLabel="Browse Full Gallery"
+          browseHref="/projects"
           projects={PROJECTS}
         />
 

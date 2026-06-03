@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { BentoProjectCard } from "@/components/molecules/BentoProjectCard";
 import type { BentoProjectCardProps } from "@/components/molecules/BentoProjectCard";
 import styles from "./ProjectsSection.module.css";
@@ -18,7 +19,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   sectionLabel = "SELECTED WORKS",
   headline = "Architectural Excellence",
   browseLabel = "Browse Full Gallery",
-  browseHref = "#",
+  browseHref = "/projects",
   projects,
   className,
 }) => {
@@ -34,7 +35,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
             <span className={styles.label}>{sectionLabel}</span>
             <h2 className={styles.headline}>{headline}</h2>
           </div>
-          <a href={browseHref} className={styles.browseLink}>
+          <Link href={browseHref} className={styles.browseLink}>
             {browseLabel}{" "}
             <span
               className={`material-symbols-outlined ${styles.browseArrow}`}
@@ -42,7 +43,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
             >
               arrow_forward
             </span>
-          </a>
+          </Link>
         </div>
 
         <div className={styles.grid}>

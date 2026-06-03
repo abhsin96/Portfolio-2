@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { NavLink } from "@/components/molecules/NavLink";
 import { Button } from "@/components/atoms/Button";
 import styles from "./Navigation.module.css";
@@ -21,18 +23,35 @@ export interface NavigationProps {
 export const Navigation: React.FC<NavigationProps> = ({
   links,
   brandName = "DevPortfolio",
-  activeHref = "#home",
+  activeHref,
   ctaLabel,
   className,
 }) => {
-  const [currentActive, setCurrentActive] = useState(activeHref);
+  const pathname = usePathname();
+  const [currentActive, setCurrentActive] = useState(
+    activeHref ?? (pathname === "/" ? "#home" : pathname),
+  );
 
   const handleNavClick = useCallback((href: string) => {
     setCurrentActive(href);
   }, []);
 
+  /* Sync active state with current route for route-based links */
   useEffect(() => {
-    const sectionIds = links.map((link) => link.href.slice(1));
+    const routeLink = links.find(
+      (link) => link.href === pathname && !link.href.startsWith("#"),
+    );
+    if (routeLink) {
+      setCurrentActive(routeLink.href);
+    }
+  }, [pathname, links]);
+
+  /* Intersection observer for anchor-based links on the same page */
+  useEffect(() => {
+    const anchorLinks = links.filter((link) => link.href.startsWith("#"));
+    if (anchorLinks.length === 0) return;
+
+    const sectionIds = anchorLinks.map((link) => link.href.slice(1));
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -57,7 +76,9 @@ export const Navigation: React.FC<NavigationProps> = ({
   return (
     <nav className={`${styles.nav} ${className ?? ""}`} id="main-navigation">
       <div className={styles.inner}>
-        <span className={styles.brand}>{brandName}</span>
+        <Link href="/" className={styles.brand}>
+          {brandName}
+        </Link>
         <div className={styles.links}>
           {links.map((link) => (
             <NavLink

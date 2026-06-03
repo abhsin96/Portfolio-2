@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback } from "react";
+import Link from "next/link";
 import styles from "./NavLink.module.css";
 
 export interface NavLinkProps {
@@ -18,9 +19,12 @@ export const NavLink: React.FC<NavLinkProps> = ({
   className,
   onClick,
 }) => {
+  const isAnchorOnly = href.startsWith("#");
+  const isRouteWithAnchor = href.startsWith("/") && href.includes("#");
+
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>) => {
-      if (href.startsWith("#")) {
+      if (isAnchorOnly) {
         e.preventDefault();
         const targetId = href.slice(1);
         const targetElement = document.getElementById(targetId);
@@ -28,17 +32,27 @@ export const NavLink: React.FC<NavLinkProps> = ({
           targetElement.scrollIntoView({ behavior: "smooth" });
         }
         onClick?.(href);
+      } else {
+        onClick?.(href);
       }
     },
-    [href, onClick],
+    [href, isAnchorOnly, onClick],
   );
 
+  const linkClassName = `${styles.link} ${active ? styles.active : ""} ${className ?? ""}`;
+
+  /* Route-based links (/ or /projects) use Next.js Link for client-side nav */
+  if (!isAnchorOnly) {
+    return (
+      <Link href={href} onClick={handleClick} className={linkClassName}>
+        {children}
+      </Link>
+    );
+  }
+
+  /* Anchor-only links (#home, #projects) use plain <a> for scroll */
   return (
-    <a
-      href={href}
-      onClick={handleClick}
-      className={`${styles.link} ${active ? styles.active : ""} ${className ?? ""}`}
-    >
+    <a href={href} onClick={handleClick} className={linkClassName}>
       {children}
     </a>
   );
