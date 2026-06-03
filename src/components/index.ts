@@ -53,3 +53,22 @@ export type {
   PerformanceLogsProps,
   LogEntry,
 } from "./molecules/PerformanceLogs";
+
+export { TechStackCard } from "./molecules/TechStackCard";
+export type { TechStackCardProps } from "./molecules/TechStackCard";
+
+export { LeadershipCard } from "./molecules/LeadershipCard";
+export type { LeadershipCardProps } from "./molecules/LeadershipCard";
+
+export { StackDetail } from "./molecules/StackDetail";
+export type { StackDetailProps } from "./molecules/StackDetail";
+
+// Organisms — About Page
+export { AboutHeroSection } from "./organisms/AboutHeroSection";
+export type { AboutHeroSectionProps } from "./organisms/AboutHeroSection";
+
+export { TechArsenalSection } from "./organisms/TechArsenalSection";
+export type { TechArsenalSectionProps } from "./organisms/TechArsenalSection";
+
+export { LeadershipSection } from "./organisms/LeadershipSection";
+export type { LeadershipSectionProps } from "./organisms/LeadershipSection";

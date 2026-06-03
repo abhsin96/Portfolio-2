@@ -11,7 +11,7 @@ import type { ExperienceEntry } from "@/components/organisms/ExperienceSection";
 const NAV_LINKS = [
   { href: "#home", label: "Home" },
   { href: "/projects", label: "Projects" },
-  { href: "#about", label: "About" },
+  { href: "/about", label: "About" },
   { href: "#contact", label: "Contact" },
 ];
 
