@@ -1,0 +1,19 @@
+/* ── Shared Container Inner Layout ──
+   DRY utility: Centralised .inner container pattern.
+   Use via `composes: inner from '../../styles/container.module.css';`
+   in any CSS Module that needs the standard centered-container layout.
+*/
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding-left: var(--spacing-3);
+    padding-right: var(--spacing-3);
+  }
+}

@@ -4,10 +4,7 @@
 }
 
 .inner {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding-left: var(--grid-margin);
-  padding-right: var(--grid-margin);
+  composes: inner from "../../../styles/container.module.css";
 }
 
 .grid {
@@ -135,10 +132,5 @@
 @media (max-width: 768px) {
   .section {
     padding-top: var(--section-gap-mobile);
-  }
-
-  .inner {
-    padding-left: var(--spacing-3);
-    padding-right: var(--spacing-3);
   }
 }

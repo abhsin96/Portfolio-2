@@ -4,9 +4,7 @@
 }
 
 .inner {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--grid-margin);
+  composes: inner from "../../../styles/container.module.css";
 }
 
 /* ── Header ── */
@@ -80,11 +78,5 @@
 
   .grid {
     grid-template-columns: repeat(12, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .inner {
-    padding: 0 var(--spacing-3);
   }
 }
