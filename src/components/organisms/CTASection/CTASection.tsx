@@ -3,6 +3,7 @@ import { Button } from "@/components/atoms/Button";
 import styles from "./CTASection.module.css";
 
 export interface CTASectionProps {
+  id?: string;
   headline?: string;
   description?: string;
   ctaLabel?: string;
@@ -10,6 +11,7 @@ export interface CTASectionProps {
 }
 
 export const CTASection: React.FC<CTASectionProps> = ({
+  id,
   headline = "Let's build the future of the web together.",
   description = "Currently open to senior-level roles, freelance architecture consultations, and speaking engagements.",
   ctaLabel = "Schedule a Consultation",
@@ -17,6 +19,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
 }) => {
   return (
     <section
+      id={id}
       className={`${styles.section} ${className ?? ""}`}
       aria-label="Call to action"
     >

@@ -66,8 +66,7 @@ const PROJECTS: BentoProjectCardProps[] = [
       "E-commerce redefined with headless architecture and blazingly fast checkout.",
     imageSrc:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAIKXVr-7h6bwktqkn5H67PMk-WlRQ8Ebfwq3UTPUuzWMuQ-xWyxP15lIfYIYPyyUOeAG826meEwLbWUhBVZv-bHnSgzsbf0sA2iRh-c0PCsP8VsfPVlgiPT3VW3UlxicHxsvHpZZAhx3M9Ch0GQ-KS9yfbs7o9qlKfUOwCSCY728phEdJQzEuSjlOKutrwTs3XCUumoY_LAYnhhptn-G-mYFNWesIgjwwGLGGlLef50peXvBywBtjNsnU6paNP4YrNuJdu7En6grDI",
-    imageAlt:
-      "A futuristic e-commerce interface mockup for a luxury brand",
+    imageAlt: "A futuristic e-commerce interface mockup for a luxury brand",
     colSpan: 8,
     aspect: "landscape",
     overlayAlways: false,
@@ -122,39 +121,43 @@ export default function Home() {
       />
 
       <main>
-        {/* \u2500\u2500 Hero Section \u2500\u2500 */}
+        {/* ── Hero Section ── */}
         <HeroSection
+          id="home"
           badge="AVAILABLE FOR NEW PROJECTS"
           headline={
             <>
-              Frontend Architect{" "}
-              <span className="accent">&</span> Product Engineer
+              Frontend Architect <span className="accent">&</span> Product
+              Engineer
             </>
           }
           description="I specialize in building complex, high-performance web applications with a focus on scalable architecture and impeccable user experience."
           techStack={TECH_STACK}
           primaryCta="View Projects"
-          secondaryCta="Let\u2019s Talk"
+          secondaryCta="Let’s Talk"
         />
 
-        {/* \u2500\u2500 Featured Projects (Bento Grid) \u2500\u2500 */}
+        {/* ── Featured Projects (Bento Grid) ── */}
         <ProjectsSection
+          id="projects"
           sectionLabel="SELECTED WORKS"
           headline="Architectural Excellence"
           browseLabel="Browse Full Gallery"
           projects={PROJECTS}
         />
 
-        {/* \u2500\u2500 Experience Timeline \u2500\u2500 */}
+        {/* ── Experience Timeline ── */}
         <ExperienceSection
+          id="about"
           sectionLabel="EXPERIENCE"
           headline="Career Path"
           entries={EXPERIENCE}
         />
 
-        {/* \u2500\u2500 CTA Section \u2500\u2500 */}
+        {/* ── CTA Section ── */}
         <CTASection
-          headline="Let\u2019s build the future of the web together."
+          id="contact"
+          headline="Let’s build the future of the web together."
           description="Currently open to senior-level roles, freelance architecture consultations, and speaking engagements."
           ctaLabel="Schedule a Consultation"
         />

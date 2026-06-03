@@ -4,6 +4,7 @@ import type { BentoProjectCardProps } from "@/components/molecules/BentoProjectC
 import styles from "./ProjectsSection.module.css";
 
 export interface ProjectsSectionProps {
+  id?: string;
   sectionLabel?: string;
   headline?: string;
   browseLabel?: string;
@@ -13,6 +14,7 @@ export interface ProjectsSectionProps {
 }
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
+  id,
   sectionLabel = "SELECTED WORKS",
   headline = "Architectural Excellence",
   browseLabel = "Browse Full Gallery",
@@ -22,6 +24,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
 }) => {
   return (
     <section
+      id={id}
       className={`${styles.section} ${className ?? ""}`}
       aria-label="Featured Projects"
     >

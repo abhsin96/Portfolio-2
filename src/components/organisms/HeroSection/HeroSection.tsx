@@ -9,6 +9,7 @@ export interface TechItem {
 }
 
 export interface HeroSectionProps {
+  id?: string;
   badge?: string;
   headline: React.ReactNode;
   description: string;
@@ -19,6 +20,7 @@ export interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
+  id,
   badge = "AVAILABLE FOR NEW PROJECTS",
   headline,
   description,
@@ -29,6 +31,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 }) => {
   return (
     <section
+      id={id}
       className={`${styles.hero} ${className ?? ""}`}
       aria-label="Hero section"
     >

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { NavLink } from "@/components/molecules/NavLink";
 import { Button } from "@/components/atoms/Button";
 import styles from "./Navigation.module.css";
@@ -21,10 +21,39 @@ export interface NavigationProps {
 export const Navigation: React.FC<NavigationProps> = ({
   links,
   brandName = "DevPortfolio",
-  activeHref,
+  activeHref = "#home",
   ctaLabel,
   className,
 }) => {
+  const [currentActive, setCurrentActive] = useState(activeHref);
+
+  const handleNavClick = useCallback((href: string) => {
+    setCurrentActive(href);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = links.map((link) => link.href.slice(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setCurrentActive(`#${entry.target.id}`);
+          }
+        }
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: 0 },
+    );
+
+    for (const id of sectionIds) {
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+      }
+    }
+
+    return () => observer.disconnect();
+  }, [links]);
+
   return (
     <nav className={`${styles.nav} ${className ?? ""}`} id="main-navigation">
       <div className={styles.inner}>
@@ -34,7 +63,8 @@ export const Navigation: React.FC<NavigationProps> = ({
             <NavLink
               key={link.href}
               href={link.href}
-              active={activeHref === link.href}
+              active={currentActive === link.href}
+              onClick={handleNavClick}
             >
               {link.label}
             </NavLink>

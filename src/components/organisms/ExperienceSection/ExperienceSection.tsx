@@ -10,6 +10,7 @@ export interface ExperienceEntry {
 }
 
 export interface ExperienceSectionProps {
+  id?: string;
   sectionLabel?: string;
   headline?: string;
   entries: ExperienceEntry[];
@@ -17,6 +18,7 @@ export interface ExperienceSectionProps {
 }
 
 export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
+  id,
   sectionLabel = "EXPERIENCE",
   headline = "Career Path",
   entries,
@@ -24,6 +26,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
 }) => {
   return (
     <section
+      id={id}
       className={`${styles.section} ${className ?? ""}`}
       aria-label="Experience"
     >
@@ -35,7 +38,10 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
 
         <div className={styles.entries}>
           {entries.map((entry) => (
-            <div key={`${entry.company}-${entry.period}`} className={styles.entry}>
+            <div
+              key={`${entry.company}-${entry.period}`}
+              className={styles.entry}
+            >
               <div
                 className={`${styles.node} ${entry.active ? styles.nodeActive : ""}`}
               >
