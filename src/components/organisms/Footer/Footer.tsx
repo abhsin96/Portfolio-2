@@ -14,7 +14,7 @@ export interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({
-  brandName = "DEV.ARCHIVE",
+  brandName = "DEV_ARCHITECT",
   copyright = "© 2024 Senior Frontend Developer. Built with precision.",
   links = [],
   className,
@@ -23,7 +23,6 @@ export const Footer: React.FC<FooterProps> = ({
     <footer className={`${styles.footer} ${className ?? ""}`}>
       <div className={styles.inner}>
         <div className={styles.brand}>{brandName}</div>
-        <p className={styles.copyright}>{copyright}</p>
         <div className={styles.links}>
           {links.map((link) => (
             <a
@@ -37,6 +36,7 @@ export const Footer: React.FC<FooterProps> = ({
             </a>
           ))}
         </div>
+        <p className={styles.copyright}>{copyright}</p>
       </div>
     </footer>
   );

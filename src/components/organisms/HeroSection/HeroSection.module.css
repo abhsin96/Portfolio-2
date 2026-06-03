@@ -1,0 +1,201 @@
+.hero {
+  position: relative;
+  padding-top: 128px;
+  padding-bottom: var(--section-gap-mobile);
+  overflow: hidden;
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(192, 193, 255, 0.08) 0%,
+    rgba(11, 19, 38, 0) 70%
+  );
+  pointer-events: none;
+}
+
+.content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--grid-margin);
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ── Headline ── */
+.headline {
+  font-family: var(--font-sans);
+  font-size: var(--text-headline-xl-mobile-size);
+  font-weight: var(--text-headline-xl-weight);
+  line-height: var(--text-headline-xl-lh);
+  letter-spacing: var(--text-headline-xl-ls);
+  color: var(--color-on-surface);
+  margin-top: var(--spacing-4);
+  margin-bottom: var(--spacing-3);
+  max-width: 900px;
+}
+
+.headline :global(.accent) {
+  color: var(--color-primary);
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg-size);
+  font-weight: var(--text-body-lg-weight);
+  line-height: var(--text-body-lg-lh);
+  color: var(--color-on-surface-variant);
+  max-width: 640px;
+  margin-bottom: var(--spacing-6);
+}
+
+/* ── Tech Cloud ── */
+.techCloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--grid-gutter);
+  max-width: 768px;
+  margin-bottom: var(--spacing-8);
+}
+
+.techChip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(70, 69, 84, 0.2);
+  border-radius: var(--rounded-lg);
+  transition: all 0.3s ease;
+}
+
+.techChip:hover {
+  border-color: var(--color-primary);
+  background: rgba(192, 193, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.techIcon {
+  color: var(--color-secondary);
+  font-size: 20px;
+}
+
+.techLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-label-code-size);
+  font-weight: var(--text-label-code-weight);
+  letter-spacing: var(--text-label-code-ls);
+  color: var(--color-on-surface);
+}
+
+/* ── CTA Group ── */
+.ctaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.ctaPrimary {
+  padding: 16px 32px;
+  border-radius: var(--rounded-xl);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md-size);
+  font-weight: 600;
+}
+
+.ctaPrimary:hover {
+  box-shadow: 0 0 30px rgba(192, 193, 255, 0.3);
+}
+
+.ctaGhost {
+  padding: 16px 32px;
+  border-radius: var(--rounded-xl);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md-size);
+  font-weight: 600;
+  border: 1px solid rgba(70, 69, 84, 0.4);
+}
+
+/* ── Orbital Graphic ── */
+.orbitalGraphic {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.2;
+  pointer-events: none;
+  display: none;
+}
+
+.orbitOuter {
+  width: 600px;
+  height: 600px;
+  border: 1px solid rgba(192, 193, 255, 0.2);
+  border-radius: var(--rounded-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 60s linear infinite;
+}
+
+.orbitMiddle {
+  width: 450px;
+  height: 450px;
+  border: 1px solid rgba(78, 222, 163, 0.2);
+  border-radius: var(--rounded-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 40s linear infinite reverse;
+}
+
+.orbitInner {
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(192, 193, 255, 0.2);
+  border-radius: var(--rounded-full);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Responsive ── */
+@media (min-width: 769px) {
+  .hero {
+    padding-top: 192px;
+    padding-bottom: var(--section-gap-desktop);
+  }
+
+  .headline {
+    font-size: var(--text-headline-xl-size);
+  }
+
+  .ctaGroup {
+    flex-direction: row;
+  }
+
+  .orbitalGraphic {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 0 var(--spacing-3);
+  }
+}

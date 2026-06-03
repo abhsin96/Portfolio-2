@@ -1,9 +1,12 @@
-import { Button } from "@/components/atoms/Button";
 import { Navigation } from "@/components/organisms/Navigation";
+import { HeroSection } from "@/components/organisms/HeroSection";
+import { ProjectsSection } from "@/components/organisms/ProjectsSection";
+import { ExperienceSection } from "@/components/organisms/ExperienceSection";
+import { CTASection } from "@/components/organisms/CTASection";
 import { Footer } from "@/components/organisms/Footer";
-import { ProjectCard } from "@/components/molecules/ProjectCard";
-import { PerformanceLogs } from "@/components/molecules/PerformanceLogs";
-import styles from "./page.module.css";
+import type { TechItem } from "@/components/organisms/HeroSection";
+import type { BentoProjectCardProps } from "@/components/molecules/BentoProjectCard";
+import type { ExperienceEntry } from "@/components/organisms/ExperienceSection";
 
 const NAV_LINKS = [
   { href: "#home", label: "Home" },
@@ -12,63 +15,93 @@ const NAV_LINKS = [
   { href: "#contact", label: "Contact" },
 ];
 
-const PROJECTS = [
+const TECH_STACK: TechItem[] = [
+  { icon: "layers", label: "React" },
+  { icon: "bolt", label: "Next.js" },
+  { icon: "code", label: "TypeScript" },
+  { icon: "palette", label: "TailwindCSS" },
+  { icon: "database", label: "GraphQL" },
+  { icon: "monitoring", label: "Web Vitals" },
+];
+
+const PROJECTS: BentoProjectCardProps[] = [
   {
-    title: "NeuralCore Engine",
+    title: "Omniscience Analytics",
     description:
-      "Architected a high-throughput data processing engine capable of handling 50k+ transactions per second using distributed worker nodes and GraphQL subscriptions for real-time monitoring.",
+      "Real-time data engine processing 50M+ events daily with zero-latency visualization.",
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB2n6r5xE7rer2yxie6IWAQyHFo32gXm78psV3OWEabFuXkXHIduspx1ui70in7Z3fOy33dtJhqc55TUGGR_OX5ed76j2H55hZlymHzEzY-VWsIc2Fj6o2GEGxadhohBRadFxhOapyoVh2jNi8QB3GYYgKswW5KOfr-G02FRTmiqo1yUVywtow6WxnxXZAKaSL5KyxtleEfRsotGk5DdcEbJLtvXKxM17TKYlAZjX9-L1f6VdXn43votfPE5GG8F_f39_05w2M8lqPe",
-    imageAlt: "Code editor interface",
-    techStack: ["Tailwind", "GraphQL", "Rust"],
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDcCEAPfFuhB1gEatd0iPmDQ1ckaBwVclm1awjIPcYyIYECLjZ-5DPvgo92MtWf7ex5cYUzQLfaQGxWuayAGQxUg4ErZzviGqTK6MBxpEGMnAteCxLuGWb6hBbpZQL9OVaQUlXlDdKGCJMY7nses6TMGBGI-u-USvuDT0hARXJfrKjHyT1Lxlx0YsDfhhbpig0vEAk75rO8xCGLSsRmrnR0q_UWmT9vKq8Q6cm3iBRyzY8hEieQMBJffZ-duKJpQ1p3-gGNU-mL571o",
+    imageAlt:
+      "A sophisticated data visualization dashboard with dark indigo and deep blue accents",
+    tags: ["Next.js", "D3.js"],
+    colSpan: 8,
+    aspect: "landscape",
+    overlayAlways: false,
   },
   {
-    title: "Prism Analytics",
-    description:
-      "Developed a custom D3.js visualization library to render multidimensional datasets. Optimized rendering performance by 40% through intelligent DOM diffing and Web Workers.",
+    title: "DevLayer",
+    description: "A custom IDE plugin for distributed team collaboration.",
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA1W7kZb38fwmk3iYRzz3lhxjpScoWlVhLSNxr40nEv6mGOX-vhMy-aQ0g3UHwa6yyArG3YunrdU_SDkRbdnKnuYHHxorWo4iY4bqn6CTiH9l11OJa0Nn99OVx1-amvwYfSyfnY_VzGHqaISF5lO_L_r5crXr_QvEpfVJeQSZCXK2JIcN_0o8_M3MW_745-f_B4W2WZZ9quxdn2QG2R4tkgEKNsy3n22F5yS_OeGIB7Tw-mI6UCGqmF_ewGlYTR0c3YM7TXm5xQ4wzq",
-    imageAlt: "Data visualization dashboard",
-    techStack: ["D3.js", "TypeScript", "Next.js"],
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDahJE8qez08sYz-5IJFI2jYXzqVPSrKDcFmY5LxD1uSAfjUCslVQVVFbaRUK6unDail_CaPslv0uLZMa0Bav2X0Jivcz6K6JWU9sTb50KMI9BGOAhjSfxQfeYv536uKGSQtztCnnems29okO2hYjzUaaLKaxDRhwlIioowxqmFdusBPAxRqHw6vwRfPDrXSLNPv0rU7g8sUdOyBKsBAYi2cMVcbB7hdhqxrT7iH6txWkDReKFyAFKI_TnXKFaKyNMq_k9oqi-9ujF7",
+    imageAlt:
+      "A minimalist code editor interface with a high-contrast dark theme",
+    colSpan: 4,
+    aspect: "square",
+    overlayAlways: true,
   },
   {
-    title: "Vault Protocol",
-    description:
-      "Built a secure mobile-first payment gateway with end-to-end encryption. Implemented complex biometric authentication flows and offline synchronization patterns.",
+    title: "Core Protocol",
+    description: "The backbone for decentralized identity management.",
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCqHO6qOr9a7RzYH0WA41EEHyLj8g6A0Q-L60wbFrU8ypJMRZ4fytTZQaBFJr_3L5gPjjOZhsvrpRAS2PcSnfZQJl7qX9ntP_PlEBv65iA_8w9o26xV0fkSg4uy-4ypUl1lcTpH1RmIGpn9UBjSWISvEWccnBCbKKKXjnGvbfg-Jv2CXmz6nkhjTryPrioWXB9Tg02-DzriJRzuX_XOHafgBPXxNh99j688BkNkbfj_3NoQ4OUHPmxo5dzI_VWtf3HVk-D8qA6fCtSz",
-    imageAlt: "Mobile application mockup",
-    techStack: ["React Native", "Node.js", "Postgres"],
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuASHu2MphbCVMvnjpnYVFud63OYiAywNsjU_y3YrTWIWolM44LZCJwk4cjg1Ipa-4HgpB0_JMHGQyPfZ9YFbxJkcKkFaJvqE3Gw_dTWq61njj30e2t_OySESoRwSIchTgKLYwVCD2rLXCDnpNGrh3O_hpXvMw-oZNa3Z-l3CgLyESvrG2jgUZgk8GU5rPXCZwc0McAh5leR3PYOFmHc_vRvoMkb5EFFsCKYAi0qUzOfP6xD74ePv6nh2EQ5uY1sYy9OK82a93qfqYH9",
+    imageAlt:
+      "An abstract 3D geometric composition of crystalline structures in deep indigo",
+    colSpan: 4,
+    aspect: "square",
+    overlayAlways: true,
   },
   {
-    title: "Mesh Grid v2",
+    title: "Lux Marketplace",
     description:
-      "Designed and implemented a serverless deployment pipeline using GitHub Actions and AWS CDK, reducing deployment time from 15 minutes to under 3 minutes.",
+      "E-commerce redefined with headless architecture and blazingly fast checkout.",
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBLgPI1BRTGXoBdC5hT211rA_2N4HYmTahFoF1riahNhSybfJrFeJXegFg6jVq6VNmprDl6g8l57eW4WxOeZXnAFhpC3j85mhLHaDOtXiv2X49CFQ0ghX2h4SyHalTp1iMqerZ1xk8U9wMTfGUIvvWYRW-Ulf_0kI6v6G0QzELm9qD2fSgBG7zwwB3rFKUHRPQpE0wIcP5_YWpko9zV_giE6fyXiEaYzsRYOiot1d68Y-3w5hiTrxT-bpm599RwvhCv0CuK1QxVyYNJ",
-    imageAlt: "Server racks and networking",
-    techStack: ["AWS", "Docker", "Terraform"],
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAIKXVr-7h6bwktqkn5H67PMk-WlRQ8Ebfwq3UTPUuzWMuQ-xWyxP15lIfYIYPyyUOeAG826meEwLbWUhBVZv-bHnSgzsbf0sA2iRh-c0PCsP8VsfPVlgiPT3VW3UlxicHxsvHpZZAhx3M9Ch0GQ-KS9yfbs7o9qlKfUOwCSCY728phEdJQzEuSjlOKutrwTs3XCUumoY_LAYnhhptn-G-mYFNWesIgjwwGLGGlLef50peXvBywBtjNsnU6paNP4YrNuJdu7En6grDI",
+    imageAlt:
+      "A futuristic e-commerce interface mockup for a luxury brand",
+    colSpan: 8,
+    aspect: "landscape",
+    overlayAlways: false,
   },
 ];
 
-const TIMELINE_ENTRIES = [
+const EXPERIENCE: ExperienceEntry[] = [
   {
-    period: "2022 \u2014 PRESENT",
-    title: "Senior Systems Architect",
+    title: "Senior Frontend Engineer",
+    company: "TechScale Inc.",
+    period: "2021 \u2013 Present",
     active: true,
+    bullets: [
+      "Architected a micro-frontend ecosystem using Module Federation, reducing build times by 40%.",
+      "Led the transition from legacy React to Next.js 14 with App Router, improving LCP by 1.2s.",
+      "Mentored a team of 6 juniors and established a company-wide design system with Tailwind.",
+    ],
   },
   {
-    period: "2020 \u2014 2022",
-    title: "Full-Stack Engineer",
+    title: "Product Developer",
+    company: "FutureNode Systems",
+    period: "2018 \u2013 2021",
+    active: false,
+    bullets: [
+      "Developed high-interaction React components for a proprietary design tool.",
+      "Implemented complex state management solutions using Redux Toolkit and Sagas.",
+    ],
+  },
+  {
+    title: "Junior Web Developer",
+    company: "Initial Craft",
+    period: "2016 \u2013 2018",
     active: false,
   },
-];
-
-const PERFORMANCE_LOGS = [
-  { label: "Main thread blocking time", value: "< 50ms" },
-  { label: "Lighthouse Performance Score", value: "98/100" },
-  { label: "Unit Test Coverage", value: "94.2%" },
-  { label: "CI/CD Success Rate", value: "99.9%" },
 ];
 
 const FOOTER_LINKS = [
@@ -83,62 +116,52 @@ export default function Home() {
     <>
       <Navigation
         links={NAV_LINKS}
-        activeHref="#projects"
+        activeHref="#home"
         brandName="DevPortfolio"
         ctaLabel="Resume"
       />
 
-      <main className={styles.main}>
-        {/* \u2500\u2500 Hero Header \u2500\u2500 */}
-        <header className={styles.heroHeader}>
-          <h1 className={styles.heroTitle}>
-            Project <span className={styles.accent}>Archive</span>
-          </h1>
-          <p className={styles.heroDescription}>
-            A selection of architectural challenges and full-stack
-            implementations showcasing technical depth and performance
-            optimization.
-          </p>
-        </header>
+      <main>
+        {/* \u2500\u2500 Hero Section \u2500\u2500 */}
+        <HeroSection
+          badge="AVAILABLE FOR NEW PROJECTS"
+          headline={
+            <>
+              Frontend Architect{" "}
+              <span className="accent">&</span> Product Engineer
+            </>
+          }
+          description="I specialize in building complex, high-performance web applications with a focus on scalable architecture and impeccable user experience."
+          techStack={TECH_STACK}
+          primaryCta="View Projects"
+          secondaryCta="Let\u2019s Talk"
+        />
 
-        {/* \u2500\u2500 Project Grid \u2500\u2500 */}
-        <div className={styles.projectGrid}>
-          {PROJECTS.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
-        </div>
+        {/* \u2500\u2500 Featured Projects (Bento Grid) \u2500\u2500 */}
+        <ProjectsSection
+          sectionLabel="SELECTED WORKS"
+          headline="Architectural Excellence"
+          browseLabel="Browse Full Gallery"
+          projects={PROJECTS}
+        />
 
-        {/* \u2500\u2500 Experience Preview (Asymmetric Layout) \u2500\u2500 */}
-        <section className={styles.experienceSection}>
-          <div className={styles.experienceLeft}>
-            <h2 className={styles.experienceTitle}>Technical Progression</h2>
-            <p className={styles.experienceDescription}>
-              My approach to development is rooted in scalability and code
-              maintainability. Each project is an opportunity to solve a specific
-              architectural bottleneck.
-            </p>
-            <div className={styles.timelineEntries}>
-              {TIMELINE_ENTRIES.map((entry) => (
-                <div
-                  key={entry.title}
-                  className={`${styles.traceItem} ${
-                    !entry.active ? styles.traceItemInactive : ""
-                  }`}
-                >
-                  <p className={styles.tracePeriod}>{entry.period}</p>
-                  <h4 className={styles.traceTitle}>{entry.title}</h4>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className={styles.experienceRight}>
-            <PerformanceLogs entries={PERFORMANCE_LOGS} />
-          </div>
-        </section>
+        {/* \u2500\u2500 Experience Timeline \u2500\u2500 */}
+        <ExperienceSection
+          sectionLabel="EXPERIENCE"
+          headline="Career Path"
+          entries={EXPERIENCE}
+        />
+
+        {/* \u2500\u2500 CTA Section \u2500\u2500 */}
+        <CTASection
+          headline="Let\u2019s build the future of the web together."
+          description="Currently open to senior-level roles, freelance architecture consultations, and speaking engagements."
+          ctaLabel="Schedule a Consultation"
+        />
       </main>
 
       <Footer
-        brandName="DEV.ARCHIVE"
+        brandName="DEV_ARCHITECT"
         copyright="\u00a9 2024 Senior Frontend Developer. Built with precision."
         links={FOOTER_LINKS}
       />

@@ -41,4 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 /stitch_senior_frontend_portfolio
-.vscode.slingshot.agent
+/stitch_senior_frontend_portfolio 2
+.vscode
+.slingshot
+.agent

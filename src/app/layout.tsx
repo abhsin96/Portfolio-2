@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Projects Archive | DevPortfolio",
+  title: "DevPortfolio | Frontend Architect",
   description:
-    "A selection of architectural challenges and full-stack implementations showcasing technical depth and performance optimization.",
+    "I specialize in building complex, high-performance web applications with a focus on scalable architecture and impeccable user experience.",
 };
 
 export default function RootLayout({
@@ -27,6 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

@@ -1,0 +1,123 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--rounded-xl);
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(70, 69, 84, 0.1);
+}
+
+.spanLarge {
+  grid-column: span 1;
+}
+
+.spanSmall {
+  grid-column: span 1;
+}
+
+/* ── Image ── */
+.imageWrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-surface-container-highest);
+}
+
+.aspectLandscape {
+  aspect-ratio: 16 / 9;
+}
+
+.aspectSquare {
+  aspect-ratio: 1 / 1;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .image {
+  transform: scale(1.1);
+}
+
+/* ── Overlay ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--color-background) 0%,
+    rgba(11, 19, 38, 0.2) 40%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--spacing-4);
+  transition: opacity 0.5s ease;
+}
+
+.overlayHover {
+  opacity: 0;
+}
+
+.card:hover .overlayHover {
+  opacity: 1;
+}
+
+.overlayAlways {
+  opacity: 1;
+  background: linear-gradient(
+    to top,
+    var(--color-background) 0%,
+    rgba(11, 19, 38, 0.6) 50%,
+    transparent 100%
+  );
+}
+
+/* ── Tags ── */
+.tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: var(--spacing-2);
+}
+
+.tag {
+  padding: 4px 8px;
+  background-color: rgba(192, 193, 255, 0.2);
+  color: var(--color-primary);
+  border-radius: var(--rounded);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: var(--text-label-code-weight);
+}
+
+/* ── Text ── */
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--text-headline-md-size);
+  font-weight: var(--text-headline-md-weight);
+  line-height: var(--text-headline-md-lh);
+  color: var(--color-on-surface);
+  margin-bottom: 8px;
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-lh);
+  color: var(--color-on-surface-variant);
+  max-width: 480px;
+}
+
+/* ── Responsive ── */
+@media (min-width: 769px) {
+  .spanLarge {
+    grid-column: span 8;
+  }
+
+  .spanSmall {
+    grid-column: span 4;
+  }
+}
