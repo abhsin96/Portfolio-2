@@ -1,8 +1,7 @@
-import { Navigation } from "@/components/organisms/Navigation";
+import { PageLayout } from "@/components/templates/PageLayout";
 import { AboutHeroSection } from "@/components/organisms/AboutHeroSection";
 import { TechArsenalSection } from "@/components/organisms/TechArsenalSection";
 import { LeadershipSection } from "@/components/organisms/LeadershipSection";
-import { Footer } from "@/components/organisms/Footer";
 import type { TechStackCardProps } from "@/components/molecules/TechStackCard";
 import type { StackDetailProps } from "@/components/molecules/StackDetail";
 import type { LeadershipCardProps } from "@/components/molecules/LeadershipCard";
@@ -13,13 +12,6 @@ export const metadata: Metadata = {
   description:
     "Learn about my journey architecting the next web generation — a decade of experience in scalable frontend ecosystems.",
 };
-
-const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
-  { href: "/#contact", label: "Contact" },
-];
 
 const TECH_STACK: TechStackCardProps[] = [
   { icon: "deployed_code", label: "React", colorVariant: "primary" },
@@ -75,23 +67,9 @@ const LEADERSHIP_ITEMS: LeadershipCardProps[] = [
   },
 ];
 
-const FOOTER_LINKS = [
-  { href: "#", label: "GitHub" },
-  { href: "#", label: "LinkedIn" },
-  { href: "#", label: "Twitter" },
-  { href: "#", label: "Email" },
-];
-
 export default function AboutPage() {
   return (
-    <>
-      <Navigation
-        links={NAV_LINKS}
-        activeHref="/about"
-        brandName="DevPortfolio"
-        ctaLabel="Resume"
-      />
-
+    <PageLayout footerBrandName="DEVPORTFOLIO">
       <main style={{ paddingBottom: "var(--section-gap-desktop)" }}>
         {/* ── Professional Narrative ── */}
         <AboutHeroSection
@@ -104,8 +82,7 @@ export default function AboutPage() {
           }
           headlineMobile={
             <>
-              Architecting the{" "}
-              <span className="accent">Next Web</span>
+              Architecting the <span className="accent">Next Web</span>
             </>
           }
           paragraphs={[
@@ -132,12 +109,6 @@ export default function AboutPage() {
           items={LEADERSHIP_ITEMS}
         />
       </main>
-
-      <Footer
-        brandName="DEVPORTFOLIO"
-        copyright="\u00a9 2024 Senior Frontend Developer. Built with precision."
-        links={FOOTER_LINKS}
-      />
-    </>
+    </PageLayout>
   );
 }

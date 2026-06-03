@@ -1,5 +1,4 @@
-import { Navigation } from "@/components/organisms/Navigation";
-import { Footer } from "@/components/organisms/Footer";
+import { PageLayout } from "@/components/templates/PageLayout";
 import { ProjectCard } from "@/components/molecules/ProjectCard";
 import { PerformanceLogs } from "@/components/molecules/PerformanceLogs";
 import type { ProjectCardProps } from "@/components/molecules/ProjectCard";
@@ -13,13 +12,6 @@ export const metadata: Metadata = {
   description:
     "A selection of architectural challenges and full-stack implementations showcasing technical depth and performance optimization.",
 };
-
-const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/projects", label: "Projects" },
-  { href: "/#about", label: "About" },
-  { href: "/#contact", label: "Contact" },
-];
 
 const PROJECTS: ProjectCardProps[] = [
   {
@@ -80,23 +72,9 @@ const PERFORMANCE_LOGS: LogEntry[] = [
   { label: "CI/CD Success Rate", value: "99.9%" },
 ];
 
-const FOOTER_LINKS = [
-  { href: "#", label: "GitHub" },
-  { href: "#", label: "LinkedIn" },
-  { href: "#", label: "Twitter" },
-  { href: "#", label: "Email" },
-];
-
 export default function ProjectsPage() {
   return (
-    <>
-      <Navigation
-        links={NAV_LINKS}
-        activeHref="/projects"
-        brandName="DevPortfolio"
-        ctaLabel="Resume"
-      />
-
+    <PageLayout footerBrandName="DEV.ARCHIVE">
       <main className={styles.main}>
         {/* ── Hero Header ── */}
         <header className={styles.heroHeader}>
@@ -149,12 +127,6 @@ export default function ProjectsPage() {
           </div>
         </section>
       </main>
-
-      <Footer
-        brandName="DEV.ARCHIVE"
-        copyright="© 2024 Senior Frontend Developer. Built with precision."
-        links={FOOTER_LINKS}
-      />
-    </>
+    </PageLayout>
   );
 }

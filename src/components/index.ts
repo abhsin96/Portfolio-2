@@ -75,3 +75,7 @@ export type { TechArsenalSectionProps } from "./organisms/TechArsenalSection";
 
 export { LeadershipSection } from "./organisms/LeadershipSection";
 export type { LeadershipSectionProps } from "./organisms/LeadershipSection";
+
+// Templates
+export { PageLayout } from "./templates/PageLayout";
+export type { PageLayoutProps } from "./templates/PageLayout";

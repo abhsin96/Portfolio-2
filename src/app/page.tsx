@@ -1,19 +1,11 @@
-import { Navigation } from "@/components/organisms/Navigation";
+import { PageLayout } from "@/components/templates/PageLayout";
 import { HeroSection } from "@/components/organisms/HeroSection";
 import { ProjectsSection } from "@/components/organisms/ProjectsSection";
 import { ExperienceSection } from "@/components/organisms/ExperienceSection";
 import { CTASection } from "@/components/organisms/CTASection";
-import { Footer } from "@/components/organisms/Footer";
 import type { TechItem } from "@/components/organisms/HeroSection";
 import type { BentoProjectCardProps } from "@/components/molecules/BentoProjectCard";
 import type { ExperienceEntry } from "@/components/organisms/ExperienceSection";
-
-const NAV_LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
-  { href: "#contact", label: "Contact" },
-];
 
 const TECH_STACK: TechItem[] = [
   { icon: "layers", label: "React" },
@@ -103,23 +95,9 @@ const EXPERIENCE: ExperienceEntry[] = [
   },
 ];
 
-const FOOTER_LINKS = [
-  { href: "#", label: "GitHub" },
-  { href: "#", label: "LinkedIn" },
-  { href: "#", label: "Twitter" },
-  { href: "#", label: "Email" },
-];
-
 export default function Home() {
   return (
-    <>
-      <Navigation
-        links={NAV_LINKS}
-        activeHref="#home"
-        brandName="DevPortfolio"
-        ctaLabel="Resume"
-      />
-
+    <PageLayout activeHref="#home">
       <main>
         {/* ── Hero Section ── */}
         <HeroSection
@@ -163,12 +141,6 @@ export default function Home() {
           ctaLabel="Schedule a Consultation"
         />
       </main>
-
-      <Footer
-        brandName="DEV_ARCHITECT"
-        copyright="\u00a9 2024 Senior Frontend Developer. Built with precision."
-        links={FOOTER_LINKS}
-      />
-    </>
+    </PageLayout>
   );
 }
