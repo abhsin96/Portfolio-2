@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./TechChip.module.css";
 
 export interface TechChipProps {
@@ -7,9 +8,5 @@ export interface TechChipProps {
 }
 
 export const TechChip: React.FC<TechChipProps> = ({ label, className }) => {
-  return (
-    <span className={`${styles.chip} ${className ?? ""}`}>
-      {label}
-    </span>
-  );
+  return <span className={cn(styles.chip, className)}>{label}</span>;
 };

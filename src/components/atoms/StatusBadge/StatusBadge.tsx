@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./StatusBadge.module.css";
 
 export interface StatusBadgeProps {
@@ -13,9 +14,9 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({
   className,
 }) => {
   return (
-    <div className={`${styles.badge} ${className ?? ""}`}>
+    <div className={cn(styles.badge, className)}>
       <span
-        className={`${styles.dot} ${pulse ? styles.pulse : ""}`}
+        className={cn(styles.dot, pulse && styles.pulse)}
         aria-hidden="true"
       />
       <span className={styles.label}>{label}</span>

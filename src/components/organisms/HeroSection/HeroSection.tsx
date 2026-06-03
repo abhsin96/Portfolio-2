@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import { StatusBadge } from "@/components/atoms/StatusBadge";
 import { Button } from "@/components/atoms/Button";
 import styles from "./HeroSection.module.css";
@@ -32,7 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       id={id}
-      className={`${styles.hero} ${className ?? ""}`}
+      className={cn(styles.hero, className)}
       aria-label="Hero section"
     >
       <div className={styles.gradient} aria-hidden="true" />
@@ -49,7 +50,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {techStack.map((tech) => (
             <div key={tech.label} className={styles.techChip}>
               <span
-                className={`material-symbols-outlined ${styles.techIcon}`}
+                className={cn("material-symbols-outlined", styles.techIcon)}
                 aria-hidden="true"
               >
                 {tech.icon}

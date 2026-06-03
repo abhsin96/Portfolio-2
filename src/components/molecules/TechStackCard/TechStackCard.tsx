@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./TechStackCard.module.css";
 
 export interface TechStackCardProps {
@@ -15,9 +16,7 @@ export const TechStackCard: React.FC<TechStackCardProps> = ({
   className,
 }) => {
   return (
-    <div
-      className={`${styles.card} ${styles[colorVariant]} ${className ?? ""}`}
-    >
+    <div className={cn(styles.card, styles[colorVariant], className)}>
       <div className={styles.iconWrapper}>
         <span
           className="material-symbols-outlined"

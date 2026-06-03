@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./PerformanceLogs.module.css";
 
 export interface LogEntry {
@@ -16,7 +17,7 @@ export const PerformanceLogs: React.FC<PerformanceLogsProps> = ({
   className,
 }) => {
   return (
-    <div className={`${styles.container} ${className ?? ""}`}>
+    <div className={cn(styles.container, className)}>
       <div className={styles.header}>
         <div className={styles.indicator} aria-hidden="true" />
         <p className={styles.headerLabel}>SYSTEM PERFORMANCE LOGS</p>
@@ -25,9 +26,10 @@ export const PerformanceLogs: React.FC<PerformanceLogsProps> = ({
         {entries.map((entry, index) => (
           <p
             key={entry.label}
-            className={`${styles.entry} ${
-              index < entries.length - 1 ? styles.bordered : ""
-            }`}
+            className={cn(
+              styles.entry,
+              index < entries.length - 1 && styles.bordered,
+            )}
           >
             <span className={styles.entryLabel}>{entry.label}</span>
             <span className={styles.entryValue}>{entry.value}</span>

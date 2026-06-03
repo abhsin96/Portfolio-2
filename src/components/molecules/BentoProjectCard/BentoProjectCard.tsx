@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { cn } from "@/utils/cn";
 import styles from "./BentoProjectCard.module.css";
 
 export interface BentoProjectCardProps {
@@ -29,21 +30,28 @@ export const BentoProjectCard: React.FC<BentoProjectCardProps> = ({
   className,
 }) => {
   const spanClass = colSpan === 8 ? styles.spanLarge : styles.spanSmall;
-  const aspectClass = aspect === "square" ? styles.aspectSquare : styles.aspectLandscape;
-  const overlayClass = overlayAlways ? styles.overlayAlways : styles.overlayHover;
+  const aspectClass =
+    aspect === "square" ? styles.aspectSquare : styles.aspectLandscape;
+  const overlayClass = overlayAlways
+    ? styles.overlayAlways
+    : styles.overlayHover;
 
   return (
-    <article className={`${styles.card} ${spanClass} ${className ?? ""}`}>
-      <div className={`${styles.imageWrapper} ${aspectClass}`}>
+    <article className={cn(styles.card, spanClass, className)}>
+      <div className={cn(styles.imageWrapper, aspectClass)}>
         <Image
           src={imageSrc}
           alt={imageAlt}
           fill
-          sizes={colSpan === 8 ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
+          sizes={
+            colSpan === 8
+              ? "(max-width: 768px) 100vw, 66vw"
+              : "(max-width: 768px) 100vw, 33vw"
+          }
           className={styles.image}
         />
       </div>
-      <div className={`${styles.overlay} ${overlayClass}`}>
+      <div className={cn(styles.overlay, overlayClass)}>
         {tags.length > 0 && (
           <div className={styles.tags}>
             {tags.map((tag) => (

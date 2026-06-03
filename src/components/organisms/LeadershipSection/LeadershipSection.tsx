@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import { LeadershipCard } from "@/components/molecules/LeadershipCard";
 import type { LeadershipCardProps } from "@/components/molecules/LeadershipCard";
 import styles from "./LeadershipSection.module.css";
@@ -21,16 +22,14 @@ export const LeadershipSection: React.FC<LeadershipSectionProps> = ({
   className,
 }) => {
   return (
-    <section id={id} className={`${styles.section} ${className ?? ""}`}>
+    <section id={id} className={cn(styles.section, className)}>
       <div className={styles.inner}>
         <div className={styles.grid}>
           {/* Intro Column */}
           <div className={styles.introColumn}>
             <span className={styles.label}>{sectionLabel}</span>
             <h2 className={styles.headline}>{headline}</h2>
-            {description && (
-              <p className={styles.description}>{description}</p>
-            )}
+            {description && <p className={styles.description}>{description}</p>}
           </div>
 
           {/* Timeline Column */}
@@ -39,10 +38,16 @@ export const LeadershipSection: React.FC<LeadershipSectionProps> = ({
             {items.map((item, index) => (
               <div
                 key={item.title}
-                className={`${styles.timelineItem} ${index === items.length - 1 ? styles.last : ""}`}
+                className={cn(
+                  styles.timelineItem,
+                  index === items.length - 1 && styles.last,
+                )}
               >
                 <div
-                  className={`${styles.node} ${styles[`node_${item.colorVariant ?? "primary"}`]}`}
+                  className={cn(
+                    styles.node,
+                    styles[`node_${item.colorVariant ?? "primary"}`],
+                  )}
                   aria-hidden="true"
                 />
                 <LeadershipCard {...item} />

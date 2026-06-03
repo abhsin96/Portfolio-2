@@ -5,6 +5,7 @@ import { PerformanceLogs } from "@/components/molecules/PerformanceLogs";
 import type { ProjectCardProps } from "@/components/molecules/ProjectCard";
 import type { LogEntry } from "@/components/molecules/PerformanceLogs";
 import type { Metadata } from "next";
+import { cn } from "@/utils/cn";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -122,9 +123,7 @@ export default function ProjectsPage() {
           aria-label="Technical Progression"
         >
           <div className={styles.experienceLeft}>
-            <h2 className={styles.experienceHeadline}>
-              Technical Progression
-            </h2>
+            <h2 className={styles.experienceHeadline}>Technical Progression</h2>
             <p className={styles.experienceDescription}>
               My approach to development is rooted in scalability and code
               maintainability. Each project is an opportunity to solve a
@@ -134,9 +133,10 @@ export default function ProjectsPage() {
               {EXPERIENCE_TIMELINE.map((item) => (
                 <div
                   key={item.period}
-                  className={`${styles.timelineEntry} ${
-                    !item.active ? styles.timelineEntryInactive : ""
-                  }`}
+                  className={cn(
+                    styles.timelineEntry,
+                    !item.active && styles.timelineEntryInactive,
+                  )}
                 >
                   <p className={styles.timelinePeriod}>{item.period}</p>
                   <h4 className={styles.timelineTitle}>{item.title}</h4>

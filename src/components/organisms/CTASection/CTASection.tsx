@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import { Button } from "@/components/atoms/Button";
 import styles from "./CTASection.module.css";
 
@@ -20,7 +21,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
   return (
     <section
       id={id}
-      className={`${styles.section} ${className ?? ""}`}
+      className={cn(styles.section, className)}
       aria-label="Call to action"
     >
       <div className={styles.inner}>

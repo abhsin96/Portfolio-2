@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./ExperienceSection.module.css";
 
 export interface ExperienceEntry {
@@ -27,7 +28,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
   return (
     <section
       id={id}
-      className={`${styles.section} ${className ?? ""}`}
+      className={cn(styles.section, className)}
       aria-label="Experience"
     >
       <div className={styles.inner}>
@@ -43,10 +44,13 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
               className={styles.entry}
             >
               <div
-                className={`${styles.node} ${entry.active ? styles.nodeActive : ""}`}
+                className={cn(styles.node, entry.active && styles.nodeActive)}
               >
                 <span
-                  className={`${styles.nodeDot} ${entry.active ? styles.nodeDotActive : ""}`}
+                  className={cn(
+                    styles.nodeDot,
+                    entry.active && styles.nodeDotActive,
+                  )}
                 />
               </div>
               <div className={styles.content}>

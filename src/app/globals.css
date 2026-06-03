@@ -164,3 +164,102 @@ body {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
+
+/* ============================================================
+   Shared Utility Classes — DRY patterns extracted from
+   organism/molecule CSS modules (see CODE_DUPLICATION_REPORT.md).
+   All values reference design tokens from tokens.css.
+   ============================================================ */
+
+/* ── Section Inner Container ──
+   Centered, max-width container with responsive horizontal padding.
+   Replaces duplicated .inner in 7+ organism CSS modules.
+*/
+.section-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--grid-margin);
+}
+
+@media (max-width: 768px) {
+  .section-inner {
+    padding: 0 var(--spacing-3);
+  }
+}
+
+/* ── Section Label ──
+   Mono-font, uppercase label used as section identifier.
+   Replaces duplicated .label in 5 organism CSS modules.
+*/
+.section-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-label-caps-size);
+  font-weight: var(--text-label-caps-weight);
+  letter-spacing: var(--text-label-caps-ls);
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-2);
+}
+
+/* ── Section Headline ──
+   Headline-lg typography for section headings.
+   Replaces duplicated .headline in 5 organism CSS modules.
+*/
+.section-headline {
+  font-family: var(--font-sans);
+  font-size: var(--text-headline-lg-size);
+  font-weight: var(--text-headline-lg-weight);
+  line-height: var(--text-headline-lg-lh);
+  letter-spacing: var(--text-headline-lg-ls);
+  color: var(--color-on-surface);
+}
+
+/* ── Section Description ──
+   Body text with on-surface-variant color.
+   Replaces duplicated .description in 6+ CSS modules.
+*/
+.section-description {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-lh);
+  color: var(--color-on-surface-variant);
+}
+
+/* ── Section Padding ──
+   Shared section vertical padding with responsive override.
+   Replaces duplicated .section padding in 5 organism CSS modules.
+*/
+.section-padding {
+  padding: var(--section-gap-mobile) 0;
+}
+
+@media (min-width: 769px) {
+  .section-padding {
+    padding: var(--section-gap-desktop) 0;
+  }
+}
+
+/* ── Glass Card ──
+   Shared frosted-glass card background with backdrop-filter.
+   Replaces duplicated glass card styles in 4 molecule CSS modules.
+*/
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--ghost-border-color);
+  border-radius: var(--rounded-xl);
+}
+
+/* ── Title MD ──
+   Headline-md typography for card/item titles.
+   Replaces duplicated .title headline-md in 4 molecule CSS modules.
+*/
+.title-md {
+  font-family: var(--font-sans);
+  font-size: var(--text-headline-md-size);
+  font-weight: var(--text-headline-md-weight);
+  line-height: var(--text-headline-md-lh);
+  color: var(--color-on-surface);
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./AboutHeroSection.module.css";
 
 export interface AboutHeroSectionProps {
@@ -23,7 +24,7 @@ export const AboutHeroSection: React.FC<AboutHeroSectionProps> = ({
   className,
 }) => {
   return (
-    <section id={id} className={`${styles.section} ${className ?? ""}`}>
+    <section id={id} className={cn(styles.section, className)}>
       <div className={styles.inner}>
         <div className={styles.grid}>
           {/* Text Column */}

@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./GhostBorder.module.css";
 
 export interface GhostBorderProps {
@@ -16,7 +17,7 @@ export const GhostBorder: React.FC<GhostBorderProps> = ({
 }) => {
   return (
     <Component
-      className={`${styles.ghostBorder} ${hoverGlow ? styles.glow : ""} ${className ?? ""}`}
+      className={cn(styles.ghostBorder, hoverGlow && styles.glow, className)}
     >
       {children}
     </Component>

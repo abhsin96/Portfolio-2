@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { cn } from "@/utils/cn";
 import { NavLink } from "@/components/molecules/NavLink";
 import { Button } from "@/components/atoms/Button";
 import styles from "./Navigation.module.css";
@@ -74,7 +75,7 @@ export const Navigation: React.FC<NavigationProps> = ({
   }, [links]);
 
   return (
-    <nav className={`${styles.nav} ${className ?? ""}`} id="main-navigation">
+    <nav className={cn(styles.nav, className)} id="main-navigation">
       <div className={styles.inner}>
         <Link href="/" className={styles.brand}>
           {brandName}

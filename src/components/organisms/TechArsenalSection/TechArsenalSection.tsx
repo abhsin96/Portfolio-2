@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import { TechStackCard } from "@/components/molecules/TechStackCard";
 import type { TechStackCardProps } from "@/components/molecules/TechStackCard";
 import { StackDetail } from "@/components/molecules/StackDetail";
@@ -23,7 +24,7 @@ export const TechArsenalSection: React.FC<TechArsenalSectionProps> = ({
   className,
 }) => {
   return (
-    <section id={id} className={`${styles.section} ${className ?? ""}`}>
+    <section id={id} className={cn(styles.section, className)}>
       <div className={styles.inner}>
         {/* Header */}
         <div className={styles.header}>

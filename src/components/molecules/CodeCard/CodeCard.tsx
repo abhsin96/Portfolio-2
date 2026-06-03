@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import { WindowDots } from "@/components/atoms/WindowDots";
 import styles from "./CodeCard.module.css";
 
@@ -14,7 +15,7 @@ export const CodeCard: React.FC<CodeCardProps> = ({
   className,
 }) => {
   return (
-    <div className={`${styles.card} ${className ?? ""}`}>
+    <div className={cn(styles.card, className)}>
       <div className={styles.header}>
         <WindowDots />
         {title && <span className={styles.title}>{title}</span>}

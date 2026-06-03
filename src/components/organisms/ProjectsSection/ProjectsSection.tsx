@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { cn } from "@/utils/cn";
 import { BentoProjectCard } from "@/components/molecules/BentoProjectCard";
 import type { BentoProjectCardProps } from "@/components/molecules/BentoProjectCard";
 import styles from "./ProjectsSection.module.css";
@@ -26,7 +27,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   return (
     <section
       id={id}
-      className={`${styles.section} ${className ?? ""}`}
+      className={cn(styles.section, className)}
       aria-label="Featured Projects"
     >
       <div className={styles.inner}>
@@ -38,7 +39,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           <Link href={browseHref} className={styles.browseLink}>
             {browseLabel}{" "}
             <span
-              className={`material-symbols-outlined ${styles.browseArrow}`}
+              className={cn("material-symbols-outlined", styles.browseArrow)}
               aria-hidden="true"
             >
               arrow_forward

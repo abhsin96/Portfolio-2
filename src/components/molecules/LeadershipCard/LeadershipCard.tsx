@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./LeadershipCard.module.css";
 
 export interface LeadershipCardProps {
@@ -17,8 +18,8 @@ export const LeadershipCard: React.FC<LeadershipCardProps> = ({
   className,
 }) => {
   return (
-    <div className={`${styles.card} ${className ?? ""}`}>
-      <h4 className={`${styles.title} ${styles[`title_${colorVariant}`]}`}>
+    <div className={cn(styles.card, className)}>
+      <h4 className={cn(styles.title, styles[`title_${colorVariant}`])}>
         {title}
       </h4>
       <p className={styles.description}>{description}</p>
@@ -27,7 +28,7 @@ export const LeadershipCard: React.FC<LeadershipCardProps> = ({
           {tags.map((tag) => (
             <span
               key={tag}
-              className={`${styles.tag} ${styles[`tag_${colorVariant}`]}`}
+              className={cn(styles.tag, styles[`tag_${colorVariant}`])}
             >
               {tag}
             </span>

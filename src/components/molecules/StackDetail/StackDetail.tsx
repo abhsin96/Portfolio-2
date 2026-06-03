@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./StackDetail.module.css";
 
 export interface StackDetailProps {
@@ -15,9 +16,9 @@ export const StackDetail: React.FC<StackDetailProps> = ({
   className,
 }) => {
   return (
-    <div className={`${styles.detail} ${className ?? ""}`}>
+    <div className={cn(styles.detail, className)}>
       <div className={styles.header}>
-        <span className={`${styles.dot} ${styles[colorVariant]}`} />
+        <span className={cn(styles.dot, styles[colorVariant])} />
         <h3 className={styles.title}>{title}</h3>
       </div>
       <p className={styles.description}>{description}</p>

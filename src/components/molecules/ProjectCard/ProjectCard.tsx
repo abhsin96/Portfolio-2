@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { cn } from "@/utils/cn";
 import { WindowDots } from "@/components/atoms/WindowDots";
 import { TechChip } from "@/components/atoms/TechChip";
 import styles from "./ProjectCard.module.css";
@@ -22,7 +23,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   className,
 }) => {
   return (
-    <article className={`${styles.card} ${className ?? ""}`}>
+    <article className={cn(styles.card, className)}>
       <div className={styles.imageWrapper}>
         <Image
           src={imageSrc}

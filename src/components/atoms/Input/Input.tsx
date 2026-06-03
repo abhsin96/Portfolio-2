@@ -1,8 +1,8 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./Input.module.css";
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
@@ -20,12 +20,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={ref}
           id={inputId}
-          className={`${styles.input} ${className ?? ""}`}
+          className={cn(styles.input, className)}
           {...props}
         />
       </div>
     );
-  }
+  },
 );
 
 Input.displayName = "Input";

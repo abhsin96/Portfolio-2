@@ -2,6 +2,7 @@
 
 import React, { useCallback } from "react";
 import Link from "next/link";
+import { cn } from "@/utils/cn";
 import styles from "./NavLink.module.css";
 
 export interface NavLinkProps {
@@ -39,7 +40,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
     [href, isAnchorOnly, onClick],
   );
 
-  const linkClassName = `${styles.link} ${active ? styles.active : ""} ${className ?? ""}`;
+  const linkClassName = cn(styles.link, active && styles.active, className);
 
   /* Route-based links (/ or /projects) use Next.js Link for client-side nav */
   if (!isAnchorOnly) {

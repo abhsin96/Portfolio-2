@@ -1,10 +1,10 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./Button.module.css";
 
 export type ButtonVariant = "primary" | "ghost";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   children: React.ReactNode;
 }
@@ -17,7 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`${styles.button} ${styles[variant]} ${className ?? ""}`}
+      className={cn(styles.button, styles[variant], className)}
       {...props}
     >
       {children}

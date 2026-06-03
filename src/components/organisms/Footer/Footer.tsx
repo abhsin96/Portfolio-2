@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./Footer.module.css";
 
 export interface FooterLink {
@@ -20,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({
   className,
 }) => {
   return (
-    <footer className={`${styles.footer} ${className ?? ""}`}>
+    <footer className={cn(styles.footer, className)}>
       <div className={styles.inner}>
         <div className={styles.brand}>{brandName}</div>
         <div className={styles.links}>

@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/utils/cn";
 import styles from "./TimelineNode.module.css";
 
 export interface TimelineNodeProps {
@@ -12,7 +13,7 @@ export const TimelineNode: React.FC<TimelineNodeProps> = ({
 }) => {
   return (
     <div
-      className={`${styles.node} ${active ? styles.active : ""} ${className ?? ""}`}
+      className={cn(styles.node, active && styles.active, className)}
       aria-hidden="true"
     />
   );
