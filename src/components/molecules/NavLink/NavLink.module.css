@@ -1,0 +1,31 @@
+.link {
+  font-family: var(--font-mono);
+  font-size: var(--text-label-code-size);
+  font-weight: var(--text-label-code-weight);
+  letter-spacing: var(--text-label-code-ls);
+  color: var(--color-on-surface-variant);
+  opacity: 0.6;
+  text-decoration: none;
+  padding: var(--spacing-1) 0;
+  position: relative;
+  transition:
+    opacity var(--transition-base),
+    color var(--transition-base);
+}
+
+.link:hover {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+.link.active {
+  opacity: 1;
+  color: var(--color-primary);
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+/* Active indicator */
+.link.active::after {
+  content: none;
+}

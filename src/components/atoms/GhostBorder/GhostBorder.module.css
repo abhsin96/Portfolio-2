@@ -1,0 +1,15 @@
+.ghostBorder {
+  border: 1px solid var(--ghost-border-color);
+  border-radius: var(--rounded-lg);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.ghostBorder:hover {
+  border-color: var(--color-primary);
+}
+
+.ghostBorder.glow:hover {
+  box-shadow: 0 0 20px rgba(192, 193, 255, 0.12);
+}

@@ -1,0 +1,19 @@
+.timeline {
+  position: relative;
+}
+
+/* Vertical trace line (git-graph style) */
+.line {
+  position: absolute;
+  left: 6px; /* center of 14px TimelineNode */
+  top: 4px;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--color-primary-container);
+  opacity: 0.4;
+  border-radius: var(--rounded-full);
+}
+
+.items {
+  position: relative;
+}

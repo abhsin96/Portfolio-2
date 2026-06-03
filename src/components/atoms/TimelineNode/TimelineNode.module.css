@@ -1,0 +1,20 @@
+.node {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--rounded-full);
+  border: 2px solid var(--color-outline-variant);
+  background-color: var(--color-surface-container);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition:
+    border-color var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.node.active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-container);
+  box-shadow: 0 0 12px rgba(128, 131, 255, 0.4);
+}
