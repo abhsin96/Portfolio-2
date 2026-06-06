@@ -1,16 +1,8 @@
 .card {
+  composes: glass-card from global;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--ghost-border-color);
-  border-radius: var(--rounded-lg);
-  transition:
-    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
@@ -64,11 +56,7 @@
 }
 
 .title {
-  font-family: var(--font-sans);
-  font-size: var(--text-headline-md-size);
-  font-weight: var(--text-headline-md-weight);
-  line-height: var(--text-headline-md-lh);
-  color: var(--color-on-surface);
+  composes: title-md from global;
 }
 
 .arrow {
@@ -83,10 +71,7 @@
 }
 
 .description {
-  font-family: var(--font-sans);
-  font-size: var(--text-body-md-size);
-  line-height: var(--text-body-md-lh);
-  color: var(--color-on-surface-variant);
+  composes: section-description from global;
   margin-bottom: var(--spacing-4);
   flex-grow: 1;
 }

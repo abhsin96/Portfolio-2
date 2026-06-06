@@ -1,10 +1,6 @@
 .card {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--ghost-border-color);
-  border-radius: var(--rounded-xl);
+  composes: glass-card from global;
   padding: var(--spacing-4);
-  transition: border-color var(--transition-base);
 }
 
 .card:hover {
@@ -12,10 +8,7 @@
 }
 
 .title {
-  font-family: var(--font-sans);
-  font-size: var(--text-headline-md-size);
-  font-weight: var(--text-headline-md-weight);
-  line-height: var(--text-headline-md-lh);
+  composes: title-md from global;
   margin-bottom: var(--spacing-1);
 }
 
@@ -32,10 +25,7 @@
 }
 
 .description {
-  font-family: var(--font-sans);
-  font-size: var(--text-body-md-size);
-  line-height: var(--text-body-md-lh);
-  color: var(--color-on-surface-variant);
+  composes: section-description from global;
   margin-bottom: var(--spacing-2);
 }
 

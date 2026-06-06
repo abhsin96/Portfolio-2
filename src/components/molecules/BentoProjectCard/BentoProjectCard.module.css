@@ -1,11 +1,7 @@
 .card {
+  composes: glass-card from global;
   position: relative;
   overflow: hidden;
-  border-radius: var(--rounded-xl);
-  background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid rgba(70, 69, 84, 0.1);
 }
 
 .spanLarge {
@@ -95,9 +91,7 @@
 
 /* ── Text ── */
 .title {
-  font-family: var(--font-sans);
-  font-size: var(--text-headline-md-size);
-  font-weight: var(--text-headline-md-weight);
+  composes: title-md from global;
   line-height: var(--text-headline-md-lh);
   color: var(--color-on-surface);
   margin-bottom: 8px;
