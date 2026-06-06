@@ -40,13 +40,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Preload Material Symbols font */}
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        />
-
         {/* Inline critical CSS for LCP optimization */}
         <style>{`
           :root {
@@ -77,12 +70,17 @@ export default function RootLayout({
             margin-top: var(--spacing-4);
             margin-bottom: var(--spacing-3);
           }
+          
+          /* Prevent CLS from Material Symbols font loading */
+          .material-symbols-outlined {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            min-height: 24px;
+            font-size: 24px;
+          }
         `}</style>
-
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body>{children}</body>
     </html>

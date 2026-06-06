@@ -3,6 +3,8 @@
    ============================================================ */
 
 @import "../styles/tokens.css";
+/* Material Symbols font - non-critical, loads asynchronously */
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=optional");
 
 /* ── CSS Reset ── */
 *,
@@ -55,6 +57,21 @@ a {
 ul,
 ol {
   list-style: none;
+}
+
+/* ── Material Symbols Icon Font ── */
+/* Prevent CLS by defining fixed dimensions for Material Symbols icons */
+.material-symbols-outlined {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-feature-settings: "liga";
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ── Typography Utility Classes ── */

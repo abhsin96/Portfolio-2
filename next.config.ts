@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Optimize bundle size with better tree-shaking for component imports
+  experimental: {
+    optimizePackageImports: ["@/components", "@/utils", "@/constants"],
+  },
 };
 
 export default nextConfig;
